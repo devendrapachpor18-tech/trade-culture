@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Position Sizing Calculator — Trade Culture Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .result-highlight { border-color: var(--gold) !important; background: #111400 !important; }
+    .result-highlight h4 { color: var(--gold-light); }
+    .risk-note {
+      margin-top: 20px; padding: 14px 16px;
+      background: rgba(212,160,23,0.07); border: 1px solid rgba(212,160,23,0.2);
+      border-radius: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.6;
+      display: none;
+    }
+    .risk-note strong { color: var(--gold-light); }
+    .risk-warning {
+      background: rgba(220,60,60,0.08); border-color: rgba(220,60,60,0.25);
+      color: #cc6666;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="images/logo dark.jpeg" alt="Trade Culture Logo">
+    </a>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="javascript:void(0)" class="nav-dropdown-toggle">
+        Calculators <span class="dropdown-arrow"></span>
+      </a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="sip-calculator.html">📈 SIP Calculator</a></li>
+        <li><a href="position-sizing.html">🎯 Position Sizing</a></li>
+      </ul>
+    </li>
+    <li><a href="index.html#learn">Courses</a></li>
+    <li><a href="index.html#mentor">Mentor</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+  </ul>
+  <button class="btn-register-nav" onclick="window.location='index.html#enroll'">Register Now</button>
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+</nav>
+
+<section class="calculator-section">
+  <div>
+    <a href="index.html#financial-tools" class="calc-back-link">← Back to Calculators</a>
+  </div>
+  <div class="calculator-page-header">
+    <h2>Position Sizing Calculator</h2>
+    <div class="gold-bar"></div>
+    <p>Never risk more than you can afford. Calculate the exact quantity to buy on any trade.</p>
+  </div>
+
+  <div class="calculator-card">
+    <h3>🎯 Trade Risk Calculator</h3>
+
+    <div class="form-group">
+      <label>Trading Capital (₹)</label>
+      <input type="number" id="capital" placeholder="1,00,000" min="1000">
+    </div>
+    <div class="form-group">
+      <label>Risk Per Trade (%)</label>
+      <input type="number" id="riskPercent" placeholder="1" min="0.1" max="10" step="0.1">
+    </div>
+    <div class="form-group">
+      <label>Entry Price (₹)</label>
+      <input type="number" id="entryPrice" placeholder="500" min="0.01" step="0.05">
+    </div>
+    <div class="form-group">
+      <label>Stop Loss Price (₹)</label>
+      <input type="number" id="stopLoss" placeholder="490" min="0.01" step="0.05">
+    </div>
+
+    <button onclick="calculatePositionSize()">Calculate Position Size</button>
+
+    <div class="results">
+      <div class="result-box">
+        <span>Risk Amount</span>
+        <h4 id="riskAmountResult">₹0</h4>
+      </div>
+      <div class="result-box result-highlight">
+        <span>Quantity to Buy</span>
+        <h4 id="quantityResult">0</h4>
+      </div>
+      <div class="result-box">
+        <span>Position Value</span>
+        <h4 id="positionValueResult">₹0</h4>
+      </div>
+      <div class="result-box">
+        <span>Capital Utilised</span>
+        <h4 id="capitalUsedResult">0%</h4>
+      </div>
+    </div>
+
+    <div class="risk-note" id="riskNote"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 Trade Culture Academy. Disclaimer: Investment in securities market are subject to market risks. 
+Read all the related documents carefully before investing. 
+Past performance is not indicative of future returns. 
+Trade Culture provides educational content only and is not 
+a SEBI registered investment advisor. Please consult your 
+financial advisor before making any investment decisions.</div>
+  <ul class="footer-links">
+    <li><a href="terms.html">Terms & Conditions</a></li>
+    <li><a href="disclaimer.html">Disclaimer</a></li>
+   
+  </ul>
+</footer>
+
+<script>
+function formatCurrency(num) {
+  return "₹" + Number(num).toLocaleString("en-IN", { maximumFractionDigits: 0 });
+}
+
+function calculatePositionSize() {
+  const capital = parseFloat(document.getElementById("capital").value);
+  const riskPercent = parseFloat(document.getElementById("riskPercent").value);
+  const entryPrice = parseFloat(document.getElementById("entryPrice").value);
+  const stopLoss = parseFloat(document.getElementById("stopLoss").value);
+  const noteEl = document.getElementById("riskNote");
+
+  if (!capital || !riskPercent || !entryPrice || !stopLoss) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  const riskPerShare = Math.abs(entryPrice - stopLoss);
+  if (riskPerShare === 0) {
+    alert("Entry Price and Stop Loss cannot be the same.");
+    return;
+  }
+
+  const riskAmount = capital * riskPercent / 100;
+  const quantity = Math.floor(riskAmount / riskPerShare);
+  const positionValue = quantity * entryPrice;
+  const capitalUsedPct = (positionValue / capital * 100).toFixed(1);
+
+  document.getElementById("riskAmountResult").innerText = formatCurrency(riskAmount);
+  document.getElementById("quantityResult").innerText = quantity.toLocaleString("en-IN");
+  document.getElementById("positionValueResult").innerText = formatCurrency(positionValue);
+  document.getElementById("capitalUsedResult").innerText = capitalUsedPct + "%";
+
+  // Advisory note
+  noteEl.style.display = "block";
+  noteEl.className = "risk-note";
+  if (riskPercent > 3) {
+    noteEl.className = "risk-note risk-warning";
+    noteEl.innerHTML = `⚠️ <strong>High Risk Alert:</strong> Risking ${riskPercent}% per trade is above the institutional guideline of 1–2%. Consider reducing your risk percentage to preserve capital over the long run.`;
+  } else if (quantity === 0) {
+    noteEl.className = "risk-note risk-warning";
+    noteEl.innerHTML = `⚠️ <strong>Quantity is 0:</strong> The stop-loss distance is too large relative to your risk amount. Try a tighter stop loss or increase your capital.`;
+  } else {
+    noteEl.innerHTML = `✅ <strong>Good risk sizing.</strong> At ${riskPercent}% risk per trade, you need <strong>${quantity} shares</strong> of capital deployed (${capitalUsedPct}% of total capital). Professional traders typically risk 0.5–2% per trade.`;
+  }
+}
+
+// Mobile menu
+const menu = document.getElementById("mobile-menu");
+const navLinks = document.getElementById("nav-links");
+menu.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menu.innerHTML = navLinks.classList.contains("active") ? "✕" : "☰";
+});
+// Close on regular link click
+document.querySelectorAll(".nav-links > li > a:not(.nav-dropdown-toggle)").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menu.innerHTML = "☰";
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+  });
+});
+// Close on dropdown sub-item click
+document.querySelectorAll(".nav-dropdown-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menu.innerHTML = "☰";
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+  });
+});
+// Dropdown toggle
+document.querySelectorAll(".nav-dropdown-toggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const dropdown = toggle.closest(".nav-dropdown");
+    const isOpen = dropdown.classList.contains("open");
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+    if (!isOpen) dropdown.classList.add("open");
+  });
+});
+// Close dropdown on outside click
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".nav-dropdown")) {
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+  }
+});
+window.addEventListener("scroll", () => {
+  document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20);
+});
+</script>
+</body>
+</html>

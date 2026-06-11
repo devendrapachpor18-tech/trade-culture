@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trade Culture Academy — Stock Market Masterclass</title>
+  <meta name="description" content="India's premier stock market masterclass. Learn price action, risk management, and swing trading from institutional traders."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="images/logo dark.jpeg" alt="Trade Culture Logo">
+    </a>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+ <li class="nav-dropdown">
+  <a href="#financial-tools" class="nav-dropdown-toggle">
+    Calculators <span class="dropdown-arrow"></span>
+  </a>
+
+  <ul class="nav-dropdown-menu">
+    <li><a href="sip-calculator.html">📈 SIP Calculator</a></li>
+    <li><a href="position-sizing.html">🎯 Position Sizing</a></li>
+  </ul>
+</li>
+    <li><a href="#learn">Courses</a></li>
+    <li><a href="#mentor">Mentor</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="btn-register-nav" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">Register Now</button>
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Stock Market Online Masterclass</h1>
+    
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">Enroll Now</button>
+      <button class="btn-outline" onclick="document.getElementById('learn').scrollIntoView({behavior:'smooth'})">What You'll Learn</button>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-item">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Institutional Curriculum
+  </div>
+  <div class="trust-bar-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Lifetime Recording Access
+  </div>
+  <div class="trust-bar-item">
+    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Private Community Access
+  </div>
+  <div class="trust-bar-item">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    100% Beginner Friendly
+  </div>
+</div>
+
+<!-- WHAT YOU LEARN -->
+<section id="learn">
+  <h2 class="section-title">What You Will Learn</h2>
+  <div class="gold-bar"></div>
+  <p class="section-sub">A structured curriculum from market fundamentals to institutional-level strategy.</p>
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="learn-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 9-9"/></svg>
+      </div>
+      <h3>Price Action</h3>
+      <p>Master the art of reading live market data without lagging indicators. Understand raw price movement.</p>
+      <div class="learn-tag">Detailed Analysis</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Risk Management</h3>
+      <p>Learn institutional risk protocols to protect and grow your capital safely through any market condition.</p>
+      <div class="learn-tag">Capital Protection</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <h3>Swing Trading</h3>
+      <p>Discover high-probability setups that capture multi-day market trends with precision entry and exit.</p>
+      <div class="learn-tag">Strategy Building</div>
+    </div>
+    <div class="learn-card">
+      <div class="learn-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Live Analysis</h3>
+      <p>Real-time market walkthroughs to apply concepts in actual trading hours with expert guidance.</p>
+      <div class="learn-tag">Real-Time Sessions</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIAL TOOLS -->
+<section id="financial-tools" class="tools-section">
+  <h2>Financial Tools</h2>
+  <div class="gold-bar"></div>
+  <p>Free calculators to plan your trades and investments like a professional.</p>
+  <div class="tools-grid">
+    <a href="sip-calculator.html" class="tool-card">
+      <div class="tool-icon">📈</div>
+      <h3>SIP Calculator</h3>
+      <p>Estimate your future wealth with monthly SIP investments. Visualise compounding over time.</p>
+      <span>Open Calculator →</span>
+    </a>
+    <a href="position-sizing.html" class="tool-card">
+      <div class="tool-icon">🎯</div>
+      <h3>Position Sizing Calculator</h3>
+      <p>Calculate the ideal quantity to buy based on your risk per trade and capital allocation.</p>
+      <span>Open Calculator →</span>
+    </a>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section id="mentor" class="mentor-section">
+  <div class="mentor-wrap">
+    <div class="mentor-img-wrap">
+      <img src="images/mentor-photo.jpeg" alt="Lead Instructor"/>
+      <div class="mentor-badge">5+<span>Years Exp.</span></div>
+      <div class="mentor-photo-name">
+        <div class="mentor-photo-title">Devendra Pachpor</div>
+        <div class="mentor-photo-role">Market Analyst & Trader</div>
+      </div>
+    </div>
+    <div class="mentor-content">
+      <div class="mentor-eyebrow">Your Instructor</div>
+      <h2>Meet Your Mentor</h2>
+      <p>Hello, I am Devendra Pachpor - Founder of Trade Culture.
+
+With 5+ years of market experience, I have executed thousands of trades in the 
+Indian Stock Market, Nifty/BankNifty Options, and Forex Markets. I hold the NISM 
+SEBI Investor Awareness Certificate.
+
+When I started trading in 2019, I lost ₹2 Lakh by following random tips. 
+That's when I learned - "To survive in the market, learn skills, not tips."
+
+Today, I have trained 5000+ students in Price Action, Smart Money Concepts, 
+Risk Management, and Trading Psychology. My primary focus is always on Capital 
+Protection.</p>
+      <ul class="mentor-points">
+        <li>Indian Markets: Equity, Futures & Options, Intraday & Swing Trading</li>
+        <li>Forex Market: Major Pairs, Gold, Indices</li>
+        <li>Strategy: Price Action, Supply & Demand, Minimum 1:2 Risk-to-Reward</li>
+        <li>Psychology: Discipline, Patience, Trade Journaling</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2 class="section-title">Choose Your Plan</h2>
+  <div class="gold-bar"></div>
+  <p class="section-sub">Investment in knowledge pays the best interest. Select the plan that fits your goals.</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-plan">Basic</div>
+      <div class="price-amount"><span>₹</span>999</div>
+      <ul class="price-features">
+        <li>All Live Theory Sessions</li>
+        <li>Course Recordings (30 days)</li>
+        <li>PDF Resource Guides</li>
+        <li>Access to Financial Calculators</li>
+      </ul>
+      <button class="btn-join btn-join-outline" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+    <div class="price-card popular">
+      <div class="popular-badge">Most Popular</div>
+      <div class="price-plan">Pro</div>
+      <div class="price-amount"><span>₹</span>1999</div>
+      <ul class="price-features">
+        <li>Everything in Basic</li>
+        <li>Lifetime Recording Access</li>
+        <li>Live Q&A Mentorship Calls</li>
+        <li>Private Discord Community</li>
+        <li>Trade Setups & Watchlists</li>
+      </ul>
+      <button class="btn-join btn-join-gold" onclick="document.getElementById('enroll').scrollIntoView({behavior:'smooth'})">Enroll in Pro</button>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLL FORM -->
+<section id="enroll" class="enroll-section">
+  <div class="enroll-wrap">
+    <div class="enroll-left">
+      <h2>Secure Your Seat Today</h2>
+      <p>Limited slots to ensure personal attention for every Student.</p>
+      <div class="enroll-trust">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4>Secure Payment</h4>
+            <p>100% encrypted transaction via Razorpay</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <h4>Instant Access</h4>
+            <p>Receive joining link immediately after payment</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h4>7-Day Refund Policy</h4>
+            <p>Not satisfied? Full refund within 7 days, no questions asked</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-proof">
+    <h3>Join Our Community</h3>
+
+    <div class="social-grid">
+        <a href="https://t.me/trdewithdev" class="social-card telegram">
+            <i class="fab fa-telegram-plane"></i>
+            <span>Telegram</span>
+        </a>
+
+        <a href="#" class="social-card instagram">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+
+        <a href="#" class="social-card youtube">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61577501040921" class="social-card facebook">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+        </a>
+    </div>
+
+    <p class="community-count">
+        Trusted by <strong>15,000+</strong> aspiring traders
+    </p>
+</div>
+    </div>
+    <div class="enroll-right">
+      <div class="form-card" id="enrollFormCard">
+        <div id="enrollForm">
+          <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="b2af61ec-90b8-43f5-bdfa-19d669725770"> 
+          <input type="hidden" name="redirect" value="...">
+          <input type="hidden" name="subject" value="New Trade Culture Registration"> 
+          <div class="form-card-title">Register</div>
+         <div class="form-group"> 
+         <label>Full Name <span class="req-star">*</span></label> 
+         <input type="text" name="name" placeholder="Your full name" required> 
+         </div>
+          <div class="form-group">
+            <label>Mobile Number <span class="req-star">*</span></label>
+            <input type="tel" name="mobile" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+          <div class="form-group"> <label>Email Address</label> <input type="email" name="email" placeholder="you@example.com"> </div>
+          <div class="form-group"> <label>Plan</label> <select name="plan"> <option value="">Select a plan</option> <option value="Basic ₹999">Basic — ₹999</option> <option value="Pro ₹1999">Pro — ₹1999</option> </select> </div>
+         <div class="form-group"> <label>Profession</label> <input type="text" name="profession" placeholder="e.g. Student, Working Professional"> </div>
+         <button type="submit" class="btn-pay"> Book My Seat </button>          
+         <div class="form-note"> Fields marked <span class="req-star">*</span> are required. By registering, you agree to our Terms & Refund Policy. </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2 class="section-title">Student Success Stories</h2>
+  <div class="gold-bar"></div>
+  <p class="section-sub">Real results from real traders who started exactly where you are.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p>The price action strategies changed my perspective entirely. I'm seeing consistent profits after 2 years of struggling on my own.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Ankit Sharma</div>
+          <div class="testi-role">Full-Time Trader</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p>The risk management module alone is worth 3× the price. I protected a lot of capital just by applying the position sizing rules.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Priya Patel</div>
+          <div class="testi-role">Active Trader</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p>Institutional-level insights that you simply won't find on YouTube. The live sessions helped me understand why price moves the way it does.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">Rahul Mehta</div>
+          <div class="testi-role">Options Trader</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="gold-bar"></div>
+  <p class="section-sub">Everything you need to know about the masterclass.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is this course suitable for complete beginners?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Absolutely. The course starts from market fundamentals and gradually moves to advanced institutional concepts. Whether you've never opened a trading account or have been trading for years, the curriculum is designed to deliver value at every level.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What if I miss a live session?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">All live sessions are recorded. Pro plan members get lifetime access to all recordings, while Basic plan members get 30-day access. You won't miss a single lesson regardless of your schedule.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Will I get stock tips or buy/sell calls?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">No. We don't provide tips or calls. Instead, we teach you to become an independent trader who can identify your own setups and make informed decisions — a far more valuable skill than following someone else's calls.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long is the course?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">The live batch runs for approximately 6–8 weeks with sessions scheduled 3–4 times per week. Each session is 60–90 minutes. Pro members get lifetime access to replay all sessions at their own pace.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is the refund policy?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">We offer a 7-day no-questions-asked refund from the date of purchase. If you attend more than 3 sessions, the refund eligibility may not apply. Full details are in our Refund Policy linked in the footer.</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Trade Culture Academy. Disclaimer: Investment in securities market are subject to market risks. 
+Read all the related documents carefully before investing. 
+Past performance is not indicative of future returns. 
+Trade Culture provides educational content only and is not 
+a SEBI registered investment advisor. Please consult your 
+financial advisor before making any investment decisions.</div>
+  <ul class="footer-links">
+    <li><a href="terms.html">Terms & Conditions</a></li>
+    <li><a href="disclaimer.html">Disclaimer</a></li>
+   
+  </ul>
+</footer>
+ 
+<script src="script.js"></script>
+<script>
+  // ── Mobile menu toggle ──
+  const menu = document.getElementById("mobile-menu");
+  const navLinks = document.getElementById("nav-links");
+ 
+  menu.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menu.innerHTML = navLinks.classList.contains("active") ? "✕" : "☰";
+  });
+
+  // Close mobile menu when a real nav link (not a dropdown toggle) is clicked
+  document.querySelectorAll(".nav-links > li > a:not(.nav-dropdown-toggle)").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menu.innerHTML = "☰";
+      document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+    });
+  });
+
+  // Close mobile menu when a dropdown sub-item is clicked
+  document.querySelectorAll(".nav-dropdown-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menu.innerHTML = "☰";
+      document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+    });
+  });
+ 
+  // ── Nav scroll shadow ──
+  window.addEventListener("scroll", () => {
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20);
+  });
+ 
+  // ── Dropdown: close when clicking outside ──
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".nav-dropdown")) {
+      document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+    }
+  });
+ 
+  // ── Dropdown: toggle on click (works on both mobile and desktop) ──
+  document.querySelectorAll(".nav-dropdown-toggle").forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent outside-click handler from firing immediately
+      const dropdown = toggle.closest(".nav-dropdown");
+      const isOpen = dropdown.classList.contains("open");
+      // Close all other dropdowns first
+      document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+      if (!isOpen) dropdown.classList.add("open");
+    });
+  });
+ 
+  // ── Form Validation ──
+  function setError(inputId, errorId, show) {
+    const input = document.getElementById(inputId);
+    const err = document.getElementById(errorId);
+    if (show) {
+      input.classList.add("input-error");
+      err.style.display = "block";
+    } else {
+      input.classList.remove("input-error");
+      err.style.display = "none";
+    }
+    return !show;
+  }
+ 
+ 
+ 
+  // Clear error on typing
+  ["fieldName", "fieldMobile"].forEach(id => {
+    document.getElementById(id).addEventListener("input", () => {
+      document.getElementById(id).classList.remove("input-error");
+    });
+  });
+</script>
+
+
+<a href="https://wa.me/917477050205?text=Hi%2C%20I%27m%20interested%20in%20the%20Stock%20Market%20Masterclass%21" 
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="whatsapp-tooltip">Chat with us</span>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.49.648 4.83 1.783 6.863L2 30l7.338-1.763A13.934 13.934 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 01-5.83-1.598l-.418-.248-4.352 1.046 1.068-4.24-.272-.435A11.46 11.46 0 014.5 16C4.5 9.596 9.596 4.5 16 4.5S27.5 9.596 27.5 16 22.404 27.5 16 27.5zm6.29-8.61c-.344-.172-2.04-1.006-2.356-1.121-.316-.114-.546-.172-.776.172-.23.344-.89 1.121-1.09 1.351-.2.23-.4.258-.744.086-.344-.172-1.454-.536-2.77-1.71-1.024-.914-1.714-2.044-1.914-2.388-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.87-1.063-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43s-1.204 1.177-1.204 2.87 1.232 3.33 1.404 3.56c.172.23 2.426 3.704 5.878 5.194.822.354 1.464.566 1.964.724.824.262 1.574.226 2.168.138.66-.1 2.04-.834 2.328-1.638.286-.806.286-1.496.2-1.638-.084-.142-.314-.228-.66-.4z"/>
+  </svg>
+</a>
+ 
+</body>
+</html>

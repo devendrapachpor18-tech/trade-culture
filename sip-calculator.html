@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIP Calculator — Trade Culture Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sip-chart-wrap {
+      margin-top: 28px;
+      padding: 20px 16px 12px;
+      background: #0E0E0E;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .sip-chart-title { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 14px; }
+    .sip-bar-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .sip-bar-row { display: flex; align-items: center; gap: 12px; }
+    .sip-bar-label { font-size: 12px; color: var(--text-muted); width: 80px; flex-shrink: 0; text-align: right; }
+    .sip-bar-track { flex: 1; height: 10px; background: #1a1a1a; border-radius: 5px; overflow: hidden; }
+    .sip-bar-fill { height: 100%; border-radius: 5px; transition: width 0.6s ease; }
+    .sip-bar-invested { background: #3a3a3a; }
+    .sip-bar-profit { background: linear-gradient(to right, var(--gold-btn), var(--gold-light)); }
+    .sip-bar-val { font-size: 12px; font-weight: 700; color: var(--text-light); width: 90px; flex-shrink: 0; }
+    .result-highlight { border-color: var(--gold) !important; background: #111400 !important; }
+    .result-highlight h4 { color: var(--gold-light); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="images/logo dark.jpeg" alt="Trade Culture Logo">
+    </a>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="javascript:void(0)" class="nav-dropdown-toggle">
+        Calculators <span class="dropdown-arrow"></span>
+      </a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="sip-calculator.html">📈 SIP Calculator</a></li>
+        <li><a href="position-sizing.html">🎯 Position Sizing</a></li>
+      </ul>
+    </li>
+    <li><a href="index.html#learn">Courses</a></li>
+    <li><a href="index.html#mentor">Mentor</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+  </ul>
+  <button class="btn-register-nav" onclick="window.location='index.html#enroll'">Register Now</button>
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+</nav>
+
+<section class="calculator-section">
+  <div>
+    <a href="index.html#financial-tools" class="calc-back-link">← Back to Calculators</a>
+  </div>
+  <div class="calculator-page-header">
+    <h2>SIP Calculator</h2>
+    <div class="gold-bar"></div>
+    <p>See how your monthly investments grow with the power of compounding.</p>
+  </div>
+
+  <div class="calculator-card">
+    <h3>📈 SIP Returns Estimator</h3>
+
+    <div class="form-group">
+      <label>Monthly Investment (₹)</label>
+      <input type="number" id="sipAmount" placeholder="5,000" min="100">
+    </div>
+    <div class="form-group">
+      <label>Expected Annual Return (%)</label>
+      <input type="number" id="sipReturn" placeholder="12" min="1" max="50">
+    </div>
+    <div class="form-group">
+      <label>Duration (Years)</label>
+      <input type="number" id="sipYears" placeholder="10" min="1" max="40">
+    </div>
+
+    <button onclick="calculateSIP()">Calculate Returns</button>
+
+    <div class="results">
+      <div class="result-box">
+        <span>Total Invested</span>
+        <h4 id="investedAmount">₹0</h4>
+      </div>
+      <div class="result-box">
+        <span>Estimated Returns</span>
+        <h4 id="profitAmount">₹0</h4>
+      </div>
+      <div class="result-box result-highlight" id="futureBox">
+        <span>Future Value</span>
+        <h4 id="futureValue">₹0</h4>
+      </div>
+      <div class="result-box">
+        <span>Wealth Gained</span>
+        <h4 id="wealthRatio">—</h4>
+      </div>
+    </div>
+
+    <div class="sip-chart-wrap" id="sipChart" style="display:none">
+      <div class="sip-chart-title">Investment Breakdown</div>
+      <div class="sip-bar-wrap">
+        <div class="sip-bar-row">
+          <span class="sip-bar-label">Invested</span>
+          <div class="sip-bar-track"><div class="sip-bar-fill sip-bar-invested" id="barInvested" style="width:0%"></div></div>
+          <span class="sip-bar-val" id="barInvestedVal">—</span>
+        </div>
+        <div class="sip-bar-row">
+          <span class="sip-bar-label">Returns</span>
+          <div class="sip-bar-track"><div class="sip-bar-fill sip-bar-profit" id="barProfit" style="width:0%"></div></div>
+          <span class="sip-bar-val" id="barProfitVal">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 Trade Culture Academy. Disclaimer: Investment in securities market are subject to market risks. 
+Read all the related documents carefully before investing. 
+Past performance is not indicative of future returns. 
+Trade Culture provides educational content only and is not 
+a SEBI registered investment advisor. Please consult your 
+financial advisor before making any investment decisions.</div>
+  <ul class="footer-links">
+    <li><a href="terms.html">Terms & Conditions</a></li>
+    <li><a href="disclaimer.html">Disclaimer</a></li>
+   
+  </ul>
+</footer>
+
+<script>
+function formatCurrency(num) {
+  if (num >= 10000000) return "₹" + (num / 10000000).toFixed(2) + " Cr";
+  if (num >= 100000) return "₹" + (num / 100000).toFixed(2) + " L";
+  return "₹" + Number(num).toLocaleString("en-IN", { maximumFractionDigits: 0 });
+}
+
+function calculateSIP() {
+  const sip = parseFloat(document.getElementById("sipAmount").value);
+  const annualReturn = parseFloat(document.getElementById("sipReturn").value);
+  const years = parseFloat(document.getElementById("sipYears").value);
+
+  if (!sip || !annualReturn || !years) { alert("Please fill all fields."); return; }
+  if (sip < 100) { alert("Minimum monthly investment is ₹100."); return; }
+
+  const r = annualReturn / 12 / 100;
+  const n = years * 12;
+  const futureValue = sip * (((Math.pow(1 + r, n)) - 1) / r) * (1 + r);
+  const invested = sip * n;
+  const profit = futureValue - invested;
+  const ratio = (futureValue / invested).toFixed(2);
+
+  document.getElementById("investedAmount").innerText = formatCurrency(invested);
+  document.getElementById("profitAmount").innerText = formatCurrency(profit);
+  document.getElementById("futureValue").innerText = formatCurrency(futureValue);
+  document.getElementById("wealthRatio").innerText = ratio + "x";
+
+  // Chart bars
+  const total = futureValue;
+  const investedPct = (invested / total * 100).toFixed(1);
+  const profitPct = (profit / total * 100).toFixed(1);
+
+  document.getElementById("sipChart").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("barInvested").style.width = investedPct + "%";
+    document.getElementById("barProfit").style.width = profitPct + "%";
+  }, 50);
+  document.getElementById("barInvestedVal").innerText = formatCurrency(invested);
+  document.getElementById("barProfitVal").innerText = formatCurrency(profit);
+}
+
+// Mobile menu
+const menu = document.getElementById("mobile-menu");
+const navLinks = document.getElementById("nav-links");
+menu.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menu.innerHTML = navLinks.classList.contains("active") ? "✕" : "☰";
+});
+// Close on regular link click
+document.querySelectorAll(".nav-links > li > a:not(.nav-dropdown-toggle)").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menu.innerHTML = "☰";
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+  });
+});
+// Close on dropdown sub-item click
+document.querySelectorAll(".nav-dropdown-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menu.innerHTML = "☰";
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+  });
+});
+// Dropdown toggle
+document.querySelectorAll(".nav-dropdown-toggle").forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const dropdown = toggle.closest(".nav-dropdown");
+    const isOpen = dropdown.classList.contains("open");
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+    if (!isOpen) dropdown.classList.add("open");
+  });
+});
+// Close dropdown on outside click
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".nav-dropdown")) {
+    document.querySelectorAll(".nav-dropdown").forEach(d => d.classList.remove("open"));
+  }
+});
+window.addEventListener("scroll", () => {
+  document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20);
+});
+</script>
+</body>
+</html>
