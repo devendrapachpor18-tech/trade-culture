@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ | Trade Culture Academy</title>
+
+  <meta name="description" content="Frequently asked questions about Trade Culture Academy's stock market masterclass — course format, refunds, live sessions and more.">
+  <meta name="keywords" content="trade culture faq, stock market course questions, trading course refund policy">
+
+  <link rel="canonical" href="https://tradeculture.in/faq.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FAQ | Trade Culture Academy">
+  <meta property="og:description" content="Everything you need to know about the Trade Culture stock market masterclass.">
+  <meta property="og:url" content="https://tradeculture.in/faq.html">
+  <meta property="og:image" content="https://tradeculture.in/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAQ | Trade Culture Academy">
+  <meta name="twitter:description" content="Everything you need to know about the masterclass.">
+  <meta name="twitter:image" content="https://tradeculture.in/images/og-image.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" type="image/png" href="./images/fab.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-19HVNP28H7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-19HVNP28H7');
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="images/logo dark.jpeg" alt="Trade Culture Logo">
+    </a>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="mentor.html">Mentor</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="btn-register-nav" onclick="window.location.href='pricing.html#enroll'">Register Now</button>
+  <div class="menu-toggle" id="mobile-menu">☰</div>
+</nav>
+<section class="page-hero">
+  <div class="page-breadcrumb"><a href="index.html">Home</a> / <span>FAQ</span></div>
+  <h1>Frequently Asked <span style="color:var(--gold)">Questions</span></h1>
+  <p>Everything you need to know about the masterclass.</p>
+</section>
+
+<section id="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is this course suitable for complete beginners?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Absolutely. The course starts from market fundamentals and gradually moves to advanced institutional concepts. Whether you've never opened a trading account or have been trading for years, the curriculum is designed to deliver value at every level.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What if I miss a live session?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">All live sessions are recorded. Pro plan members get lifetime access to all recordings, while Basic plan members get 30-day access. You won't miss a single lesson regardless of your schedule.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Will I get stock tips or buy/sell calls?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">No. We don't provide tips or calls. Instead, we teach you to become an independent trader who can identify your own setups and make informed decisions — a far more valuable skill than following someone else's calls.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long is the course?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">The live batch runs for approximately 6–8 weeks with sessions scheduled 3–4 times per week. Each session is 60–90 minutes. Pro members get lifetime access to replay all sessions at their own pace.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is the refund policy?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">We offer a 7-day no-questions-asked refund from the date of purchase. If you attend more than 3 sessions, the refund eligibility may not apply. Full details are in our Refund Policy linked in the footer.</div>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center; padding: 10px 24px 90px;">
+  <button class="btn-primary" onclick="window.location.href='pricing.html'">View Pricing &amp; Enroll</button>
+</section>
+
+<script src="script.js"></script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Trade Culture Academy. Disclaimer: Investment in securities market are subject to market risks.
+Read all the related documents carefully before investing.
+Past performance is not indicative of future returns.
+Trade Culture provides educational content only and is not
+a SEBI registered investment advisor. Please consult your
+financial advisor before making any investment decisions.</div>
+  <ul class="footer-links">
+    <li><a href="terms.html">Terms & Conditions</a></li>
+    <li><a href="disclaimer.html">Disclaimer</a></li>
+  </ul>
+</footer>
+
+<script>
+  // ── Mobile menu toggle ──
+  const menu = document.getElementById("mobile-menu");
+  const navLinks = document.getElementById("nav-links");
+
+  menu.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menu.innerHTML = navLinks.classList.contains("active") ? "✕" : "☰";
+  });
+
+  document.querySelectorAll(".nav-links > li > a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menu.innerHTML = "☰";
+    });
+  });
+
+  // ── Nav scroll shadow ──
+  window.addEventListener("scroll", () => {
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20);
+  });
+</script>
+
+<a href="https://wa.me/917477050205?text=Hi%2C%20I%27m%20interested%20in%20the%20Stock%20Market%20Masterclass%21"
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="whatsapp-tooltip">Chat with us</span>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.49.648 4.83 1.783 6.863L2 30l7.338-1.763A13.934 13.934 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 01-5.83-1.598l-.418-.248-4.352 1.046 1.068-4.24-.272-.435A11.46 11.46 0 014.5 16C4.5 9.596 9.596 4.5 16 4.5S27.5 9.596 27.5 16 22.404 27.5 16 27.5zm6.29-8.61c-.344-.172-2.04-1.006-2.356-1.121-.316-.114-.546-.172-.776.172-.23.344-.89 1.121-1.09 1.351-.2.23-.4.258-.744.086-.344-.172-1.454-.536-2.77-1.71-1.024-.914-1.714-2.044-1.914-2.388-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.87-1.063-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43s-1.204 1.177-1.204 2.87 1.232 3.33 1.404 3.56c.172.23 2.426 3.704 5.878 5.194.822.354 1.464.566 1.964.724.824.262 1.574.226 2.168.138.66-.1 2.04-.834 2.328-1.638.286-.806.286-1.496.2-1.638-.084-.142-.314-.228-.66-.4z"/>
+  </svg>
+</a>
+</body>
+</html>
