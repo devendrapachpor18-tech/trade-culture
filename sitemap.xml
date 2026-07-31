@@ -29,4 +29,29 @@
     <priority>0.3</priority>
   </url>
 
+<url>
+    <loc>https://tradeculture.in/courses</loc>
+    <priority>0.3</priority>
+  </url>
+
+<url>
+    <loc>https://tradeculture.in/mentor</loc>
+    <priority>0.3</priority>
+  </url>
+
+<url>
+    <loc>https://tradeculture.in/pricing</loc>
+    <priority>0.3</priority>
+  </url>
+
+<url>
+    <loc>https://tradeculture.in/faq</loc>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://tradeculture.in/contact</loc>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
